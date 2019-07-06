@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<import resource="classpath:BaseDaoTest-context.xml" />
+
+	<bean id="dataPointDao" class="com.teaminformatics.synodex.dao.impl.DataPointDaoImpl">
+        <constructor-arg value="com.teaminformatics.synodex.model.DataPointCategory"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean> 
+	
+	<bean id="medicalHierarchyViewDao" class="com.teaminformatics.synodex.dao.impl.MedicalHierarchyViewDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="dataPointEntryDao" class="com.teaminformatics.synodex.dao.impl.DataPointEntryDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>
+	
+   	<bean id="dataPointFormEntityDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.DataPointFormEntity"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>  
+
+   	<bean id="pageDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.Page"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>  
+	
+	<bean id="dataPointController" class="com.teaminformatics.webapp.controller.DataPointController">
+		<property name="pageDao" ref="pageDao" />
+		<property name="dataPointDao" ref="dataPointDao" />
+		<property name="dataPointEntryDao" ref="dataPointEntryDao" />
+		<property name="dataPointFormEntityDao" ref="dataPointFormEntityDao" />
+		<property name="medicalHierarchyViewDao" ref="medicalHierarchyViewDao" />
+	</bean>
+	
+</beans>

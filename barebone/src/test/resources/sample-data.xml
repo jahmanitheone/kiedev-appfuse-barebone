@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="USERS">
+		<column>userid</column>
+		<column>username</column>
+		<column>password</column>
+		<column>firstname</column>
+		<column>lastname</column>
+		<column>email</column>
+		<column>phone</column>
+		<column>challengeQuestion</column>
+		<column>accountStatus</column>
+		<column>accountExpired</column>
+		<column>accountEnabled</column>
+		<column>accountLocked</column>
+		<column>credentialsExpired</column>
+		<row>
+			<value description="userid">-1</value>
+			<value description="username">user</value>
+			<value description="password">12dea96fec20593566ab75692c9949596833adc9</value>
+			<value description="firstname">Tomcat</value>
+			<value description="lastname">User</value>
+			<value description="email">matt_raible@yahoo.com</value>
+			<value description="phone"></value>
+			<value description="challengeQuestion"><![CDATA[A male kitty.]]></value>
+			<value description="accountStatus">1</value>
+            <value description="accountExpired">0</value>
+            <value description="accountEnabled">Y</value>
+            <value description="accountLocked">0</value>
+            <value description="credentialsExpired">0</value>
+		</row>
+		<row>
+			<value description="userid">-2</value>
+			<value description="username">admin</value>
+			<value description="password">d033e22ae348aeb5660fc2140aec35850c4da997</value>
+			<value description="firstname">Matt</value>
+			<value description="lastname">Raible</value>
+			<value description="email">matt@raibledesigns.com</value>
+			<value description="phone"></value>
+			<value description="challengeQuestion"><![CDATA[Not a female kitty.]]></value>
+			<value description="accountStatus">1</value>
+            <value description="accountExpired">0</value>
+            <value description="accountEnabled">Y</value>
+            <value description="accountLocked">0</value>
+            <value description="credentialsExpired">0</value>
+		</row>
+	</table>
+	<table name="ROLES">
+		<column>ROLEID</column>
+		<column>ROLENAME</column>
+		<column>ROLEDESC</column>
+		<row>
+			<value description="ROLEID">-1</value>
+			<value description="ROLENAME">ROLE_ADMIN</value>
+			<value description="ROLEDESC"><![CDATA[Administrator role (can edit Users)]]></value>
+		</row>
+		<row>
+			<value description="ROLEID">-2</value>
+			<value description="ROLENAME">ROLE_USER</value>
+			<value description="ROLEDESC"><![CDATA[Default role for all Users]]></value>
+		</row>
+	</table>
+	<table name="USERROLES">
+		<column>USERID</column>
+		<column>ROLEID</column>
+		<row>
+			<value description="USERID">-2</value>
+			<value description="ROLEID">-1</value>
+		</row>
+		<row>
+			<value description="USERID">-2</value>
+			<value description="ROLEID">-2</value>
+		</row>
+	</table>
+	
+	<table name="STAGES">
+		<column>stageId</column>
+		<column>sequence</column>
+		<column>stageName</column>
+		<row>
+			<value description="stageId">1</value>
+			<value description="sequence">1</value>
+			<value description="stageName">Received</value>
+		</row>	
+		<row>
+			<value description="stageId">4</value>
+			<value description="sequence">2</value>
+			<value description="stageName">Step-1-OP</value>
+		</row>	
+		<row>
+			<value description="stageId">5</value>
+			<value description="sequence">3</value>
+			<value description="stageName">Step-1-QA</value>
+		</row>			
+		<row>
+			<value description="stageId">6</value>
+			<value description="sequence">4</value>
+			<value description="stageName">Step-2-OP</value>
+		</row>			
+		<row>
+			<value description="stageId">7</value>
+			<value description="sequence">5</value>
+			<value description="stageName">Step-2-QA</value>
+		</row>			
+		<row>
+			<value description="stageId">28</value>
+			<value description="sequence">6</value>
+			<value description="stageName">Step-3-BB</value>
+		</row>			
+		<row>
+			<value description="stageId">8</value>
+			<value description="sequence">7</value>
+			<value description="stageName">Step-3-OP</value>
+		</row>	
+		<row>
+			<value description="stageId">9</value>
+			<value description="sequence">8</value>
+			<value description="stageName">Step-3-QA</value>
+		</row>			
+		<row>
+			<value description="stageId">29</value>
+			<value description="sequence">9</value>
+			<value description="stageName">Step-4-BB</value>
+		</row>			
+		<row>
+			<value description="stageId">10</value>
+			<value description="sequence">10</value>
+			<value description="stageName">Step-4-OP</value>
+		</row>			
+		<row>
+			<value description="stageId">11</value>
+			<value description="sequence">11</value>
+			<value description="stageName">Step-4-QA</value>
+		</row>			
+		<row>
+			<value description="stageId">12</value>
+			<value description="sequence">12</value>
+			<value description="stageName">Ready to Generate</value>
+		</row>			
+		<row>
+			<value description="stageId">30</value>
+			<value description="sequence">13</value>
+			<value description="stageName">Pre-Release QA</value>
+		</row>			
+		<row>
+			<value description="stageId">13</value>
+			<value description="sequence">14</value>
+			<value description="stageName">Ready to Release</value>
+		</row>			
+		<row>
+			<value description="stageId">31</value>
+			<value description="sequence">15</value>
+			<value description="stageName">Published</value>
+		</row>			
+	</table>
+	
+	
+	
+	<table name="GROUPS">
+		<column>groupid</column>
+		<column>groupname</column>
+		<row>
+			<value description="groupid">1</value>
+			<value description="groupname">Test Group</value>
+		</row>
+	</table>
+	<table name="CLIENTS">
+		<column>CLIENTID</column>
+		<column>ADDRESS1</column>
+		<column>CITY</column>
+		<column>COUNTRY</column>
+		<column>POSTALCODE</column>
+		<column>DEFAULTLANGUAGEID</column>
+		<column>DEFAULTPAPERSIZE</column>
+		<column>DELIVERYSITE</column>
+		<column>FAX</column>
+		<column>INTAKESITE</column>
+		<column>CLIENTNAME</column>
+		<column>PHONE</column>
+		<column>PRODUCTSPEC</column>
+		<column>GROUPID</column>
+		<column>defaultDateFormat</column>
+		<row>
+			<value description="CLIENTID">1</value>
+			<value description="ADDRESS1">1234 anywhere blvd</value>
+			<value description="CITY">Minneapolis</value>
+			<value description="COUNTRY">Minnesota</value>
+			<value description="POSTALCODE">55418</value>
+			<value description="DEFAULTLANGUAGEID">1</value>
+			<value description="DEFAULTPAPERSIZE">a4</value>
+			<value description="DELIVERYSITE" />
+			<value description="FAX">651 555 5555</value>
+			<value description="INTAKESITE" />
+			<value description="CLIENTNAME">John Doe</value>
+			<value description="PHONE">651 555 5556</value>
+			<value description="PRODUCTSPEC" />
+			<value description="GROUPID">1</value>
+			<value description="defaultDateFormat">dd/mm/yyyy</value>
+		</row>
+		<row>
+			<value description="CLIENTID">2</value>
+			<value description="ADDRESS">4848 nowheresville</value>
+			<value description="CITY">St. Paul</value>
+			<value description="COUNTRY">Minnesota</value>
+			<value description="POSTALCODE">55408</value>
+			<value description="DEFAULTLANGUAGEID">1</value>
+			<value description="DEFAULTPAPERSIZE">a4</value>
+			<value description="DELIVERYSITE" />
+			<value description="FAX">651 555 5555</value>
+			<value description="INTAKESITE" />
+			<value description="CLIENTNAME">John Doe</value>
+			<value description="PHONE">651 555 5556</value>
+			<value description="PRODUCTSPEC" />
+			<value description="GROUPID">1</value>
+			<value description="defaultDateFormat">dd/mm/yyyy</value>
+		</row>
+	</table>
+	<table name="CASES">
+		<column>caseid</column>
+		<column>originalContentId</column>
+		<column>isTest</column>
+		<column>isAnonymous</column>
+		<column>isPurged</column>
+		<column>applicantName</column>
+		<column>applicantPostalCode</column>
+		<column>clientid</column>
+		<row>
+			<value description="caseid">1</value>
+			<value description="originalContentId">originalContentId1</value>
+			<value description="isTest">1</value>
+			<value description="isAnonymous">0</value>
+			<value description="isPurged">0</value>
+			<value description="applicantName">Jane Doe</value>
+			<value description="applicantPostalCode">54467</value>
+			<value description="clientid">1</value>
+		</row>
+	</table>
+	<table name="DOCUMENTTYPES">
+		<column>DOCUMENTTYPEID</column>
+		<column>DOCUMENTTYPENAME</column>
+		<column>PARENTDOCUMENTTYPEID</column>
+		<row>
+			<value description="DOCUMENTTYPEID">-1</value>
+			<value description="DOCUMENTTYPENAME">Document Types</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">1</value>
+			<value description="DOCUMENTTYPENAME">Clinical Notes or Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">2</value>
+			<value description="DOCUMENTTYPENAME">Immunization Record</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">3</value>
+			<value description="DOCUMENTTYPENAME">Physician Statement or Letter</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">4</value>
+			<value description="DOCUMENTTYPENAME">Applicant Record Summary</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">5</value>
+			<value description="DOCUMENTTYPENAME">Emergency or Urgent Care Rpt</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">6</value>
+			<value description="DOCUMENTTYPENAME">Discharge Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">7</value>
+			<value description="DOCUMENTTYPENAME">Accent Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">8</value>
+			<value description="DOCUMENTTYPENAME">Psychiatric Report or Evaluation</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">9</value>
+			<value description="DOCUMENTTYPENAME">Hospital Admission Form</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">10</value>
+			<value description="DOCUMENTTYPENAME">Pathology Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">11</value>
+			<value description="DOCUMENTTYPENAME">Cytology or Biopsy Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">12</value>
+			<value description="DOCUMENTTYPENAME">Bacteriology or Culture Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">13</value>
+			<value description="DOCUMENTTYPENAME">Ophthalmoscopy</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">14</value>
+			<value description="DOCUMENTTYPENAME">Dental Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">15</value>
+			<value description="DOCUMENTTYPENAME">Surgical or Post-Operative Rpt</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">16</value>
+			<value description="DOCUMENTTYPENAME">Neurological Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">17</value>
+			<value description="DOCUMENTTYPENAME">Social Services Report</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">18</value>
+			<value description="DOCUMENTTYPENAME">Applicant History</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">19</value>
+			<value description="DOCUMENTTYPENAME">Genetic Testing</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">20</value>
+			<value description="DOCUMENTTYPENAME">Diagnostic Tests or Procs</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">21</value>
+			<value description="DOCUMENTTYPENAME">Biochemistry</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">22</value>
+			<value description="DOCUMENTTYPENAME">Blood Test</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">23</value>
+			<value description="DOCUMENTTYPENAME">Urine</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">24</value>
+			<value description="DOCUMENTTYPENAME">Cerebrospinal Flu</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">25</value>
+			<value description="DOCUMENTTYPENAME">Amniocentesis</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">26</value>
+			<value description="DOCUMENTTYPENAME">Occult Blood</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">27</value>
+			<value description="DOCUMENTTYPENAME">Paracentesis</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">28</value>
+			<value description="DOCUMENTTYPENAME">Thoracentesis</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">29</value>
+			<value description="DOCUMENTTYPENAME">Fertility</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">30</value>
+			<value description="DOCUMENTTYPENAME">TB Test</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">31</value>
+			<value description="DOCUMENTTYPENAME">Sweat Test</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">32</value>
+			<value description="DOCUMENTTYPENAME">Stool Test</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">33</value>
+			<value description="DOCUMENTTYPENAME">Semen Analysis</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">34</value>
+			<value description="DOCUMENTTYPENAME">Other Biochemistry</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">35</value>
+			<value description="DOCUMENTTYPENAME">Imaging</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">36</value>
+			<value description="DOCUMENTTYPENAME">Endoscopy</value>
+			<value description="PARENTDOCUMENTTYPEID">-1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">37</value>
+			<value description="DOCUMENTTYPENAME">Generic Note</value>
+			<value description="PARENTDOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="DOCUMENTTYPEID">38</value>
+			<value description="DOCUMENTTYPENAME">Generic Report</value>
+			<value description="PARENTDOCUMENTTYPEID">1</value>
+		</row>
+		
+		
+	</table>
+	<table name="PAGES">
+		<column>pageid</column>
+		<column>caseid</column>
+		<column>isDeleted</column>
+		<column>isCompleted</column>
+		<column>hasDataPoint</column>
+		<column>isBadHandwriting</column>
+		<column>completeTimestamp</column>
+		<column>orientation</column>
+		<column>documentDate</column>
+		<column>spContentId</column>
+		<column>originalPageNumber</column>
+		<column>finalPageNumber</column>
+		<column>subDocumentPageNumber</column>
+		<column>subDocumentOrder</column>
+		<column>DOCUMENTTYPEID</column>
+		<row>
+			<value description="pageid">1</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0001</value>
+			<value description="originalPageNumber">1</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">2</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0002</value>
+			<value description="originalPageNumber">2</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">3</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0003</value>
+			<value description="originalPageNumber">3</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">4</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0004</value>
+			<value description="originalPageNumber">4</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">5</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0005</value>
+			<value description="originalPageNumber">5</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">6</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0006</value>
+			<value description="originalPageNumber">6</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">7</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0007</value>
+			<value description="originalPageNumber">7</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">8</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0008</value>
+			<value description="originalPageNumber">8</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">9</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP0009</value>
+			<value description="originalPageNumber">9</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">10</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP00010</value>
+			<value description="originalPageNumber">10</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">11</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP00011</value>
+			<value description="originalPageNumber">11</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+		<row>
+			<value description="pageid">12</value>
+			<value description="caseid">1</value>
+			<value description="isDeleted">0</value>
+			<value description="isCompleted">0</value>
+			<value description="hasDataPoint">0</value>
+			<value description="isBadHandwriting">0</value>
+			<value description="completeTimestamp">1900-01-01</value>
+			<value description="orientation">0</value>
+			<value description="documentDate">1900-01-01</value>
+			<value description="spContentId">SP00012</value>
+			<value description="originalPageNumber">12</value>
+			<value description="finalPageNumber">0</value>
+			<value description="subDocumentPageNumber">0</value>
+			<value description="subDocumentOrder">9999</value>
+			<value description="DOCUMENTTYPEID">1</value>
+		</row>
+	</table>
+	
+	<table name="DPCATEGORIES">
+
+		<column>DPCATEGORYID</column>
+		<column>DPCATEGORYNAME</column>
+		<row>
+			<value description="DPCATEGORYID">23</value>
+			<value description="DPCATEGORYNAME">General Health</value>
+		</row>
+		<row>
+			<value description="DPCATEGORYID">2</value>
+			<value description="DPCATEGORYNAME">Diagnosis and Disease</value>
+		</row>
+		<row>
+			<value description="DPCATEGORYID">3</value>
+			<value description="DPCATEGORYNAME">Imaging</value>
+		</row>
+		<row>
+			<value description="DPCATEGORYID">4</value>
+			<value description="DPCATEGORYNAME">Drugs and Medications</value>
+		</row>
+	</table>
+	<table name="DPCATEGORYGROUPS">
+		<column>DPCGID</column>
+		<column>GROUPID</column>
+		<column>DPCATEGORYID</column>
+		<row>
+			<value description="DPCGID">1</value>
+			<value description="GROUPID">1</value>
+			<value description="DPCATEGORYID">23</value>
+		</row>
+		<row>
+			<value description="DPCGID">2</value>
+			<value description="GROUPID">1</value>
+			<value description="DPCATEGORYID">2</value>
+		</row>
+		<row>
+			<value description="DPCGID">3</value>
+			<value description="GROUPID">1</value>
+			<value description="DPCATEGORYID">3</value>
+		</row>
+		<row>
+			<value description="DPCGID">4</value>
+			<value description="GROUPID">1</value>
+			<value description="DPCATEGORYID">4</value>
+		</row>
+	</table>
+	<table name="DPSUBCATEGORIES">
+		<column>DPSUBCATID</column>
+		<column>DPCATEGORYID</column>
+		<column>DPSUBCATNAME</column>
+		<row>
+			<value description="DPSUBCATID">331</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="DPSUBCATNAME">Alcohol Use</value>
+		</row>
+		<row>
+			<value description="DPSUBCATID">332</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="DPSUBCATNAME">Blood Pressure</value>
+		</row>
+		<row>
+			<value description="DPSUBCATID">333</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="DPSUBCATNAME">BMI Measurement</value>
+		</row>
+		<row>
+			<value description="DPSUBCATID">5</value>
+			<value description="DPCATEGORYID">2</value>
+			<value description="DPSUBCATNAME">Mental Symptoms</value>
+		</row>
+		<row>
+			<value description="DPSUBCATID">6</value>
+			<value description="DPCATEGORYID">2</value>
+			<value description="DPSUBCATNAME">Angiography</value>
+		</row>
+		<row>
+			<value description="DPSUBCATID">7</value>
+			<value description="DPCATEGORYID">3</value>
+			<value description="DPSUBCATNAME">Barium X-ray</value>
+		</row>
+		<row>
+			<value description="DPSUBCATID">8</value>
+			<value description="DPCATEGORYID">3</value>
+			<value description="DPSUBCATNAME">Cholangiography</value>
+		</row>
+	</table>
+	<table name="LOVS">
+		<column>LOVID</column>
+		<column>LOVLABEL</column>
+		<row>
+			<value description="LOVID">1</value>
+			<value description="LOVLABEL">Rate</value>
+		</row>
+		<row>
+			<value description="LOVID">17</value>
+			<value description="LOVLABEL">Status</value>
+		</row>
+	</table>
+	<table name="LOVVALUES">
+		<column>LVID</column>
+		<column>LOVID</column>
+		<column>LOVVALUE</column>
+		<row>
+			<value description="LVID">1</value>
+			<value description="LOVID">1</value>
+			<value description="LOVVALUE">High</value>
+		</row>
+		<row>
+			<value description="LVID">2</value>
+			<value description="LOVID">1</value>
+			<value description="LOVVALUE">Normal</value>
+		</row>
+		<row>
+			<value description="LVID">3</value>
+			<value description="LOVID">1</value>
+			<value description="LOVVALUE">Low</value>
+		</row>
+				<row>
+			<value description="LVID">4</value>
+			<value description="LOVID">17</value>
+			<value description="LOVVALUE">Good</value>
+		</row>
+		<row>
+			<value description="LVID">5</value>
+			<value description="LOVID">17</value>
+			<value description="LOVVALUE">Bad</value>
+		</row>
+		<row>
+			<value description="LVID">6</value>
+			<value description="LOVID">17</value>
+			<value description="LOVVALUE">Ugly</value>
+		</row>
+	</table>
+	<table name="DPFORMENTITIES">
+		<column>DPFORMENTITYID</column>
+		<column>DPCATEGORYID</column>
+		<column>HELPLINK</column>
+		<column>HELPTEXT</column>
+		<column>DISPLAYLABEL</column>
+		<column>DPSUBCATID</column>
+		<column>LOVID</column>
+		<column>isUniquePerCase</column>
+		<column>isDateRequired</column>
+		<column>isStatusRequired</column>
+		<row>
+			<value description="DPFORMENTITYID">1</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="HELPLINK">http://www.google.com</value>
+			<null/>
+			<value description="DISPLAYLABEL">Describe Alcohol Use</value>
+			<value description="DPSUBCATID">331</value>
+			<value description="LOVID">17</value>
+			<value description="isUniquePerCase">N</value>
+			<value description="isDateRequired">N</value>
+			<value description="isStatusRequired">N</value>
+		</row>
+		<row>
+			<value description="DPFORMENTITYID">2</value>
+			<value description="DPCATEGORYID">23</value>
+			<null/>
+			<value description="HELPTEXT">Double check blood pressrue</value>
+			<value description="DISPLAYLABEL">Define Blood Pressure</value>
+			<value description="DPSUBCATID">332</value>
+			<value description="LOVID">1</value>
+			<value description="isUniquePerCase">N</value>
+			<value description="isDateRequired">Y</value>
+			<value description="isStatusRequired">Y</value>
+		</row>
+		<row>
+			<value description="DPFORMENTITYID">3</value>
+			<value description="DPCATEGORYID">23</value>
+			<null/>
+			<null/>
+			<value description="DISPLAYLABEL">BMI Information</value>
+			<value description="DPSUBCATID">333</value>
+			<value description="LOVID">1</value>
+			<value description="isUniquePerCase">N</value>
+			<value description="isDateRequired">N</value>
+			<value description="isStatusRequired">N</value>
+		</row>
+		<row>
+			<value description="DPFORMENTITYID">4</value>
+			<value description="DPCATEGORYID">3</value>
+			<value description="HELPLINK">http://www.yahoo.com</value>
+			<null/>
+			<value description="DISPLAYLABEL">Describe Mental Issues</value>
+			<null />
+			<value description="LOVID">1</value>
+			<value description="isUniquePerCase">N</value>
+			<value description="isDateRequired">N</value>
+			<value description="isStatusRequired">N</value>
+		</row>
+	</table>
+	<table name="DPENTRIES">
+		<column>DPENTRYID</column>
+		<column>DPFORMENTITYID</column>
+		<column>DATADATE</column>
+		<column>ENTRYTRANSCRIPTION</column>
+		<column>PAGEID</column>
+		<column>SECTIONNUMBER</column>
+		<column>STATUS</column>
+		<row>
+			<value description="DPENTRYID">1</value>
+			<value description="DPFORMENTITYID">1</value>
+			<value description="DATADATE">2011-08-28 11:11:11</value>
+			<value description="ENTRYTRANSCRIPTION">Patient appears to have early symptoms of jaundice </value>
+			<value description="PAGEID">1</value>
+			<value description="SECTIONNUMBER">3</value>
+			<value description="STATUS">Status</value>
+			<value description="ISUNIQUEPERCASE">0</value>
+		</row>
+		<row>
+			<value description="DPENTRYID">2</value>
+			<value description="DPFORMENTITYID">1</value>
+			<value description="DATADATE">2011-08-28 11:11:11</value>
+			<value description="ENTRYTRANSCRIPTION">Patient drinks more alcohol than medically advisable</value>
+			<value description="PAGEID">2</value>
+			<value description="SECTIONNUMBER">3</value>
+			<value description="STATUS">Status</value>
+			<value description="ISUNIQUEPERCASE">0</value>
+		</row>
+	</table>
+	
+	<table name="DPENTRYCODES">
+          <column>dpecid</column>
+          <column>code</column>
+          <column>codeType</column>
+          <column>isHidden</column>
+          <column>confidence</column>
+          <column>status</column>
+          <column>isCritical</column>
+          <column>dpentryid</column>
+          <column>codeDesc</column>
+          <row>
+                          <value description="dpecid">1</value>
+                          <value description="code">a92.3</value>
+                          <value description="codeType"></value>
+                          <value description="isHidden">n</value>
+                          <value description="confidence">95</value>
+                          <null/>
+                          <value description="isCritical">y</value>
+                          <value description="dpentryid">1</value>
+                          <value description="codeDesc">West Nile virus infection</value>
+          </row>
+          <row>
+                          <value description="dpecid">2</value>
+                          <value description="code">a38</value>
+                          <value description="codeType"></value>
+                          <value description="isHidden">n</value>
+                          <value description="confidence">45</value>
+                          <null/>
+                          <value description="isCritical">0</value>
+                          <value description="dpentryid">1</value>
+                          <value description="codeDesc">Scarlet fever</value>
+          </row>
+          <row>
+                          <value description="dpecid">3</value>
+                          <value description="code">a43</value>
+                          <value description="codeType"></value>
+                          <value description="isHidden">n</value>
+                          <value description="confidence">35</value>
+                          <null/>
+                          <value description="isCritical">0</value>
+                          <value description="dpentryid">1</value>
+                          <value description="codeDesc">Nocardiosis</value>
+          </row>
+          <row>
+                          <value description="dpecid">4</value>
+                          <value description="code">a87</value>
+                          <value description="codeType"></value>
+                          <value description="isHidden">n</value>
+                          <value description="confidence">25</value>
+                          <null/>
+                          <value description="isCritical">0</value>
+                          <value description="dpentryid">1</value>
+                          <value description="codeDesc">Viral meningitis</value>
+          </row>
+          <row>
+                          <value description="dpecid">5</value>
+                          <value description="code">j04</value>
+                          <value description="codeType"></value>
+                          <value description="isHidden">n</value>
+                          <value description="confidence">65</value>
+                          <null/>
+                          <value description="isCritical">0</value>
+                          <value description="dpentryid">1</value>
+                          <value description="codeDesc">acute laryngitis and tracheitis</value>
+          </row>
+          <row>
+                          <value description="dpecid">6</value>
+                          <value description="code">a90</value>
+                          <value description="codeType"></value>
+                          <value description="isHidden">n</value>
+                          <value description="confidence">05</value>
+                          <null/>
+                          <value description="isCritical">y</value>
+                          <value description="dpentryid">1</value>
+                          <value description="codeDesc">Dengue fever (classical dengue)</value>
+          </row>
+   </table>
+
+	<table name="MASTERCODES">
+		<column>codeid</column>
+		<column>description</column>
+		<column>code</column>
+		<row>
+			<value description="codeid">1</value>
+			<value description="description">gastro-oesophageal reflux disease</value>
+			<value description="code">k21</value>
+		</row>
+		<row>
+			<value description="codeid">2</value>
+			<value description="description">acute laryngitis and tracheitis</value>
+			<value description="code">j04</value>
+		</row>
+		<row>
+			<value description="codeid">3</value>
+			<value description="description">rapidly progressive nephritic syndrome</value>
+			<value description="code">n01</value>
+		</row>
+		<row>
+			<value description="codeid">4</value>
+			<value description="description">corneal ulcer</value>
+			<value description="code">h16</value>
+		</row>
+		<row>
+			<value description="codeid">5</value>
+			<value description="description">Chronic parametritis and pelvic cellulitis</value>
+			<value description="code">n73.1</value>
+		</row>
+		<row>
+			<value description="codeid">6</value>
+			<value description="description"> Diabetes mellitus in pregnancy</value>
+			<value description="code">o24</value>
+		</row>
+		<row>
+			<value description="codeid">7</value>
+			<value description="description">Dislocation, sprain and strain of joints and ligaments of lumbar spine and pelvis</value>
+			<value description="code">s33</value>
+		</row>
+		<row>
+			<value description="codeid">8</value>
+			<value description="description">Injury of ulnar nerve at forearm level</value>
+			<value description="code">s54</value>
+		</row>
+		<row>
+			<value description="codeid">9</value>
+			<value description="description"> Fracture of patella</value>
+			<value description="code">s82</value>
+		</row>
+		<row>
+			<value description="codeid">10</value>
+			<value description="description">Other specified injuries of trunk, level unspecified</value>
+			<value description="code">t09.8</value>
+		</row>
+		<row>
+			<value description="codeid">11</value>
+			<value description="description">Foreign body in ear</value>
+			<value description="code">t15</value>
+		</row>
+		<row>
+			<value description="codeid">12</value>
+			<value description="description">Allergic contact dermatitis due to metals</value>
+			<value description="code">l23.0</value>
+		</row>
+		<row>
+			<value description="codeid">13</value>
+			<value description="description">Allergic contact dermatitis due to adhesives</value>
+			<value description="code">l23.1</value>
+		</row>
+		<row>
+			<value description="codeid">14</value>
+			<value description="description">Allergic contact dermatitis due to cosmetics</value>
+			<value description="code">l23.2</value>
+		</row>
+		<row>
+			<value description="codeid">15</value>
+			<value description="description">Allergic contact dermatitis due to drugs in contact with skin</value>
+			<value description="code">l23.3</value>
+		</row>
+		<row>
+			<value description="codeid">16</value>
+			<value description="description">Allergic contact dermatitis due to dyes</value>
+			<value description="code">l23.4</value>
+		</row>
+		<row>
+			<value description="codeid">17</value>
+			<value description="description">Allergic contact dermatitis due to other chemical products</value>
+			<value description="code">l23.5</value>
+		</row>
+		<row>
+			<value description="codeid">18</value>
+			<value description="description">Allergic contact dermatitis due to food in contact with skin</value>
+			<value description="code">l23.6</value>
+		</row>
+		<row>
+			<value description="codeid">19</value>
+			<value description="description">Absence and agenesis of lacrimal apparatus</value>
+			<value description="code">q10.4</value>
+		</row>
+		<row>
+			<value description="codeid">20</value>
+			<value description="description">Congenital stenosis of stricture of lacrimal duct</value>
+			<value description="code">q10.5</value>
+		</row>
+		<row>
+			<value description="codeid">21</value>
+			<value description="description">Congenital cataract</value>
+			<value description="code">q12.0</value>
+		</row>
+		<row>
+			<value description="codeid">22</value>
+			<value description="description">Misplaced ear</value>
+			<value description="code">q17.4</value>
+		</row>
+		<row>
+			<value description="codeid">23</value>
+			<value description="description">Laryngocele</value>
+			<value description="code">q31.3</value>
+		</row>
+		<row>
+			<value description="codeid">24</value>
+			<value description="description">Ectopic kidney</value>
+			<value description="code">q63.2</value>
+		</row>
+		<row>
+			<value description="codeid">25</value>
+			<value description="description">Epispadias</value>
+			<value description="code">q64.0</value>
+		</row>
+		<row>
+			<value description="codeid">26</value>
+			<value description="description">Webbed toes</value>
+			<value description="code">q70.3</value>
+		</row>
+		<row>
+			<value description="codeid">27</value>
+			<value description="description">Lobster-claw hand</value>
+			<value description="code">q71.6</value>
+		</row>
+		<row>
+			<value description="codeid">28</value>
+			<value description="description"> Polyostotic fibrous dysplasia</value>
+			<value description="code">q78.1</value>
+		</row>
+		<row>
+			<value description="codeid">29</value>
+			<value description="description">Osteochondrodysplasia with defects of growth of tubular bones and spine, unspecified</value>
+			<value description="code">q77.9</value>
+		</row>
+		<row>
+			<value description="codeid">30</value>
+			<value description="description">Congenital malformation</value>
+			<value description="code">q78.1</value>
+		</row>
+		<row>
+			<value description="codeid">31</value>
+			<value description="description">Marfan's syndrome</value>
+			<value description="code">q87.4</value>
+		</row>
+		<row>
+			<value description="codeid">32</value>
+			<value description="description">Individuals with marker heterochromatin</value>
+			<value description="code">q95.4</value>
+		</row>
+		<row>
+			<value description="codeid">33</value>
+			<value description="description"> Personal history of risk-factors, not elsewhere classified</value>
+			<value description="code">z91</value>
+		</row>
+		<row>
+			<value description="codeid">34</value>
+			<value description="description">Transplanted organ and tissue status</value>
+			<value description="code">z94</value>
+		</row>
+		<row>
+			<value description="codeid">35</value>
+			<value description="description">Dementia in Pick's disease</value>
+			<value description="code">f02.0</value>
+		</row>
+		<row>
+			<value description="codeid">36</value>
+			<value description="description"> Unspecified mental disorder due to brain damage and dysfunction and to physical disease</value>
+			<value description="code">f06.9</value>
+		</row>
+		<row>
+			<value description="codeid">37</value>
+			<value description="description">Postconcussional syndrome</value>
+			<value description="code">f07.2</value>
+		</row>
+		<row>
+			<value description="codeid">38</value>
+			<value description="description">Scarlet fever</value>
+			<value description="code">a38</value>
+		</row>
+		<row>
+			<value description="codeid">39</value>
+			<value description="description">Nocardiosis</value>
+			<value description="code">a43</value>
+		</row>
+		<row>
+			<value description="codeid">40</value>
+			<value description="description">Viral meningitis</value>
+			<value description="code">a87</value>
+		</row>
+		<row>
+			<value description="codeid">41</value>
+			<value description="description">Dengue fever (classical dengue)</value>
+			<value description="code">a90</value>
+		</row>
+		<row>
+			<value description="codeid">42</value>
+			<value description="description"> Ebola virus disease</value>
+			<value description="code">a98.4</value>
+		</row>
+		<row>
+			<value description="codeid">43</value>
+			<value description="description">Monkeypox</value>
+			<value description="code">b04</value>
+		</row>
+		<row>
+			<value description="codeid">44</value>
+			<value description="description">Measles</value>
+			<value description="code">b05</value>
+		</row>
+		<row>
+			<value description="codeid">45</value>
+			<value description="description">Zygomycosis</value>
+			<value description="code">b46</value>
+		</row>
+		<row>
+			<value description="codeid">46</value>
+			<value description="description"> Fascioliasis</value>
+			<value description="code">b66.3</value>
+		</row>
+		<row>
+			<value description="codeid">47</value>
+			<value description="description">Enterobiasis</value>
+			<value description="code">b80</value>
+		</row>
+		<row>
+			<value description="codeid">48</value>
+			<value description="description">Acute myocardial infarction</value>
+			<value description="code">i21</value>
+		</row>
+		<row>
+			<value description="codeid">49</value>
+			<value description="description">Chronic constrictive pericarditis</value>
+			<value description="code">i31.1</value>
+		</row>
+		<row>
+			<value description="codeid">50</value>
+			<value description="description">Cerebral infarction due to thrombosis of precerebral arteries</value>
+			<value description="code">i63.0</value>
+		</row>
+		<row>
+			<value description="codeid">51</value>
+			<value description="description">West Nile virus infection</value>
+			<value description="code">a92.3</value>
+		</row>
+	</table>
+	<table name="DPNOTABLES">
+		<column>DPNOTABLEID</column>
+		<column>caseid</column>
+		<column>DPCATEGORYID</column>
+		<column>NOTABLETEXT</column>
+		<row>
+			<value description="DPNOTABLEID">9</value>
+			<value description="caseid">1</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="NOTABLETEXT">Inconsistent Smoking History</value>
+		</row>
+		<row>
+			<value description="DPNOTABLEID">8</value>
+			<value description="caseid">1</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="NOTABLETEXT">Overweight</value>
+		</row>
+		<row>
+			<value description="DPNOTABLEID">7</value>
+			<value description="caseid">1</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="NOTABLETEXT">Moderate to high Alcohol Consumption</value>
+		</row>
+		<row>
+			<value description="DPNOTABLEID">6</value>
+			<value description="caseid">1</value>
+			<value description="DPCATEGORYID">23</value>
+			<value description="NOTABLETEXT">Two (2) abnormal results</value>
+		</row>
+
+	</table>
+	<table name="SESSIONS">
+		<column>SESSIONID</column>
+		<column>USERID</column>
+		<column>apexSessionId</column>
+		<column>LOGINTIMESTAMP</column>
+		<row>
+			<value description="SESSIONID">1</value>
+			<value description="USERID">-2</value>
+			<value description="apexSessionId">abcde</value>
+			<value description="LOGINTIMESTAMP">1900-01-01</value>
+		</row>
+	</table>
+</dataset>

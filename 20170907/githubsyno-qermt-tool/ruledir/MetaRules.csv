@@ -1,0 +1,122 @@
+RuleID,RuleShortName,RuleType,Rule,Rule Application,Report Message,Validity
+200,CF.Status1,DataStatus,IF CF= "True" THEN CF.DataStatus = "Decline",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,Decline Notice: Application should be declined for Cystic Fibrosis.,Valid
+201,HIV.ICD10Codify1,Codify,IF HIV = "TRUE" AND HIV.HIV_Type = "HTLV Type 1" THEN HIV.ICD10CMCode = "B97.33",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+202,HIV.ICD10Codify2,Codify,IF HIV = "TRUE" AND HIV.HIV_Type = "HTLV Type 2" THEN HIV.ICD10CMCode = "B97.34",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+203,MAD.ICD10Codify1,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Right Adrenal Gland" AND MAD.Adrenal_Location ="Cortex" THEN MAD.ICD10CMCode = "C74.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+204,MAD.ICD10Codify2,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Right Adrenal Gland" AND MAD.Adrenal_Location ="Medulla" THEN MAD.ICD10CMCode = "C74.11",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+205,MAD.ICD10Codify3,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Right Adrenal Gland" AND MAD.Adrenal_Location ="Unspecified Part" THEN MAD.ICD10CMCode = "C74.91",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+206,MAD.ICD10Codify4,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Left Adrenal Gland" AND MAD.Adrenal_Location ="Cortex" THEN MAD.ICD10CMCode = "C74.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+207,MAD.ICD10Codify5,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Left Adrenal Gland" AND MAD.Adrenal_Location ="Medulla" THEN MAD.ICD10CMCode = "C74.12",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+208,MAD.ICD10Codify6,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Left Adrenal Gland" AND MAD.Adrenal_Location ="Unspecified Part" THEN MAD.ICD10CMCode = "C74.92",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+209,MAD.ICD10Codify7,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Unspecified Adrenal Gland" AND MAD.Adrenal_Location ="Cortex" THEN MAD.ICD10CMCode = "C74.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+210,MAD.ICD10Codify8,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Unspecified Adrenal Gland" AND MAD.Adrenal_Location ="Medulla" THEN MAD.ICD10CMCode = "C74.10",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+211,MAD.ICD10Codify9,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Unspecified Adrenal Gland" AND MAD.Adrenal_Location ="Unspecified Part" THEN MAD.ICD10CMCode = "C74.90",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+212,MAD.ICD10Codify10,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part is NULL THEN MAD.ICD10CMCode = "C74",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+213,MAD.ICD10Codify11,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type = "Adrenocortical carcinoma" THEN MAD.ICD10CMCode = "C74.9",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+214,MAD.ICD10Codify12,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type = "Neuroblastoma" THEN MAD.ICD10CMCode = "C74.9",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+215,MAD.ICD10Codify13,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type = "Pheochromocytoma" THEN MAD.ICD10CMCode = "C74.9",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+216,MAD.ICD10Codify14,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type is NULL THEN MAD.ICD10CMCode = "C74",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+217,ALL.ICD10Codify1,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "Not Achieved Remission" THEN ALL.ICD10CMCode = "C91.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+218,ALL.ICD10Codify2,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "In Remission" THEN ALL.ICD10CMCode = "C91.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+219,ALL.ICD10Codify3,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "In Relapse" THEN ALL.ICD10CMCode = "C91.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+220,ALL.ICD10Codify4,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "Unknown" THEN ALL.ICD10CMCode = "C91.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+221,AML.ICD10Codify1,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD10CMCode = "C92.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+222,AML.ICD10Codify2,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD10CMCode = "C92.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+223,AML.ICD10Codify3,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD10CMCode = "C92.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+224,AML.ICD10Codify4,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD10CMCode = "C92.40",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+225,AML.ICD10Codify5,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD10CMCode = "C92.50",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+226,AML.ICD10Codify6,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD10CMCode = "C93.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+227,AML.ICD10Codify7,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD10CMCode = "C94.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+228,AML.ICD10Codify8,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD10CMCode = "C94.20",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+229,AML.ICD10Codify9,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD10CMCode = "C92.6",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+230,AML.ICD10Codify10,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD10CMCode = "C92.A0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+231,AML.ICD10Codify11,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD10CMCode = "C92.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+232,AML.ICD10Codify12,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD10CMCode = "C92.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+233,AML.ICD10Codify13,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD10CMCode = "C92.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+234,AML.ICD10Codify14,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD10CMCode = "C92.41",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+235,AML.ICD10Codify15,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD10CMCode = "C92.51",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+236,AML.ICD10Codify16,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD10CMCode = "C93.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+237,AML.ICD10Codify17,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD10CMCode = "C94.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+238,AML.ICD10Codify18,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD10CMCode = "C94.21",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+239,AML.ICD10Codify19,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD10CMCode = "C92.61",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+240,AML.ICD10Codify20,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD10CMCode = "C92.A1",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+241,AML.ICD10Codify21,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD10CMCode = "C92.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+242,AML.ICD10Codify22,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD10CMCode = "C92.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+243,AML.ICD10Codify23,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD10CMCode = "C92.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+244,AML.ICD10Codify24,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD10CMCode = "C92.42",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+245,AML.ICD10Codify25,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD10CMCode = "C92.52",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+246,AML.ICD10Codify26,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD10CMCode = "C93.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+247,AML.ICD10Codify27,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD10CMCode = "C94.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+248,AML.ICD10Codify28,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD10CMCode = "C94.22",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+249,AML.ICD10Codify29,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD10CMCode = "C92.62",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+250,AML.ICD10Codify30,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD10CMCode = "C92.A2",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+251,AML.ICD10Codify31,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD10CMCode = "C92.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+252,AML.ICD10Codify32,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD10CMCode = "C92.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+253,AML.ICD10Codify33,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD10CMCode = "C92.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+254,AML.ICD10Codify34,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD10CMCode = "C92.4",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+255,AML.ICD10Codify35,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD10CMCode = "C92.5",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+256,AML.ICD10Codify36,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD10CMCode = "C93.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+257,AML.ICD10Codify37,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD10CMCode = "C94.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+258,AML.ICD10Codify38,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD10CMCode = "C94.2",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+259,AML.ICD10Codify39,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD10CMCode = "C92.6",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+260,AML.ICD10Codify40,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD10CMCode = "C92.A",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+261,HIV.ICD9Codify1,Codify,IF HIV = "TRUE" AND HIV.HIV_Type = "HTLV Type 1" THEN HIV.ICD9CMCode = "079.51",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+262,HIV.ICD9Codify2,Codify,IF HIV = "TRUE" AND HIV.HIV_Type = "HTLV Type 2" THEN HIV.ICD9CMCode = "079.52",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+263,MAD.ICD9Codify1,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Right Adrenal Gland" AND MAD.Adrenal_Location ="Cortex" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+264,MAD.ICD9Codify2,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Right Adrenal Gland" AND MAD.Adrenal_Location ="Medulla" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+265,MAD.ICD9Codify3,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Right Adrenal Gland" AND MAD.Adrenal_Location ="Unspecified Part" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+266,MAD.ICD9Codify4,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Left Adrenal Gland" AND MAD.Adrenal_Location ="Cortex" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+267,MAD.ICD9Codify5,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Left Adrenal Gland" AND MAD.Adrenal_Location ="Medulla" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+268,MAD.ICD9Codify6,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Left Adrenal Gland" AND MAD.Adrenal_Location ="Unspecified Part" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+269,MAD.ICD9Codify7,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Unspecified Adrenal Gland" AND MAD.Adrenal_Location ="Cortex" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+270,MAD.ICD9Codify8,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Unspecified Adrenal Gland" AND MAD.Adrenal_Location ="Medulla" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+271,MAD.ICD9Codify9,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part = "Unspecified Adrenal Gland" AND MAD.Adrenal_Location ="Unspecified Part" THEN MAD.ICD9CMCode = "194.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+272,MAD.ICD9Codify10,Codify,IF MAD = "TRUE" AND MAD.Adrenal_Part is NULL THEN MAD.ICD9CMCode = "194",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+273,MAD.ICD9Codify11,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type = "Adrenocortical carcinoma" THEN MAD.ICD9CMCode = "194",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+274,MAD.ICD9Codify12,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type = "Neuroblastoma" THEN MAD.ICD9CMCode = "194",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+275,MAD.ICD9Codify13,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type = "Pheochromocytoma" THEN MAD.ICD9CMCode = "194",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+276,MAD.ICD9Codify14,Codify,IF MAD = "TRUE" AND MAD.Tumor_Type is NULL THEN MAD.ICD9CMCode = "194",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+277,ALL.ICD9Codify1,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "Not Achieved Remission" THEN ALL.ICD9CMCode = "204.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+278,ALL.ICD9Codify2,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "In Remission" THEN ALL.ICD9CMCode = "204.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+279,ALL.ICD9Codify3,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "In Relapse" THEN ALL.ICD9CMCode = "204.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+280,ALL.ICD9Codify4,Codify,IF ALL = "TRUE" AND ALL.Tumor_Type = "Unknown" THEN ALL.ICD9CMCode = "204.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+281,AML.ICD9Codify1,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD9CMCode = "205.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+282,AML.ICD9Codify2,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD9CMCode = "205.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+283,AML.ICD9Codify3,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD9CMCode = "205.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+284,AML.ICD9Codify4,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD9CMCode = "205.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+285,AML.ICD9Codify5,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD9CMCode = "205.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+286,AML.ICD9Codify6,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD9CMCode = "206.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+287,AML.ICD9Codify7,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD9CMCode = "207.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+288,AML.ICD9Codify8,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD9CMCode = "207.20",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+289,AML.ICD9Codify9,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+290,AML.ICD9Codify10,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Not Achieved Remission" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD9CMCode = "205.00",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+291,AML.ICD9Codify11,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD9CMCode = "205.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+292,AML.ICD9Codify12,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD9CMCode = "205.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+293,AML.ICD9Codify13,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD9CMCode = "205.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+294,AML.ICD9Codify14,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD9CMCode = "205.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+295,AML.ICD9Codify15,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD9CMCode = "205.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+296,AML.ICD9Codify16,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD9CMCode = "206.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+297,AML.ICD9Codify17,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD9CMCode = "207.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+298,AML.ICD9Codify18,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD9CMCode = "207.21",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+299,AML.ICD9Codify19,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD9CMCode = "205.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+300,AML.ICD9Codify20,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Remission" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD9CMCode = "205.01",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+301,AML.ICD9Codify21,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD9CMCode = "205.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+302,AML.ICD9Codify22,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD9CMCode = "205.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+303,AML.ICD9Codify23,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD9CMCode = "205.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+304,AML.ICD9Codify24,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD9CMCode = "205.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+305,AML.ICD9Codify25,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD9CMCode = "205.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+306,AML.ICD9Codify26,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD9CMCode = "206.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+307,AML.ICD9Codify27,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD9CMCode = "207.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+308,AML.ICD9Codify28,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD9CMCode = "207.22",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+309,AML.ICD9Codify29,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD9CMCode = "205.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+310,AML.ICD9Codify30,Codify,IF AML = "TRUE" AND AML.Condition_Status = "In Relapse" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD9CMCode = "205.02",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+311,AML.ICD9Codify31,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M0 - Undifferentiated AML" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+312,AML.ICD9Codify32,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M1 - Myeloblastic" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+313,AML.ICD9Codify33,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M2 - Myeloblastic" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+314,AML.ICD9Codify34,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M3 - Promyelocytic" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+315,AML.ICD9Codify35,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M4 - Myelomonocytic" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+316,AML.ICD9Codify36,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M5 - Monocytic" THEN AML.ICD9CMCode = "206.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+317,AML.ICD9Codify37,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M6 - Erythroleukemia" THEN AML.ICD9CMCode = "207.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+318,AML.ICD9Codify38,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.FAB_Stage ="M7 - Megakaryoblastic" THEN AML.ICD9CMCode = "207.2",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+319,AML.ICD9Codify39,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.Other_Factors ="11q23 abnormality" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid
+320,AML.ICD9Codify40,Codify,IF AML = "TRUE" AND AML.Condition_Status = "Unknown" AND AML.Other_Factors ="multilineage dysplasia" THEN AML.ICD9CMCode = "205.0",GENERIC LIFE 3.0 | MUNICH DECLINE 1.0  ,,Valid

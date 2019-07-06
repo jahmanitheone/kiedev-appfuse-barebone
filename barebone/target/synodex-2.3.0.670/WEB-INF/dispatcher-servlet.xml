@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd"
+       default-lazy-init="true">
+
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.springframework.dao.DataAccessException">
+                    dataAccessFailure
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="2097152"/>
+    </bean>
+
+    <context:component-scan base-package="com.teaminformatics.webapp"/>
+
+    <!-- Configures the @Controller programming model -->
+    <mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+				<property name="prefixJson" value="false"/>
+				<property name="objectMapper">
+		          <bean class="com.teaminformatics.synodex.serialization.HibernateAwareObjectMapper"/>
+		        </property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<mvc:interceptors>
+		<!-- http://www.paulcodding.com/blog/2008/01/21/using-the-opensessioninviewinterceptor-for-spring-hibernate3/ -->
+	    <bean class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">  
+		    <property name="sessionFactory" ref="sessionFactory"/>
+		    <property name="flushModeName" value="FLUSH_AUTO" />
+		</bean>
+	</mvc:interceptors>
+
+    <!-- Convenient way to map URLs to JSPs w/o having a Controller -->
+    <mvc:view-controller path="/admin/activeUsers" view-name="admin/activeUsers"/>
+    <mvc:view-controller path="/mainMenu" view-name="mainMenu"/>
+    <mvc:view-controller path="/example" view-name="example"/>
+    <mvc:view-controller path="/step1_popup" view-name="step1_popup"/>
+    <mvc:view-controller path="/step2_popup" view-name="step2_popup"/>
+    <mvc:view-controller path="/dplistquickview" view-name="dplistquickview"/>
+    <mvc:view-controller path="/hierarchy_popup" view-name="hierarchy_popup"/>
+    <mvc:view-controller path="/step3_popup" view-name="step3_popup"/>
+    <mvc:view-controller path="/step3_codeSearchBox" view-name="step3_codeSearchBox"/>
+    <mvc:view-controller path="/step3_imageLink" view-name="step3_imageLink"/>
+    <mvc:view-controller path="synodex/step3_codeSearchBox" view-name="step3_codeSearchBox"/>
+    <mvc:view-controller path="/step4_popup" view-name="step4_popup"/>
+    <mvc:view-controller path="/errorDialog" view-name="errorDialog"/>
+    <mvc:view-controller path="/glossary" view-name="glossary"/>
+
+    <!-- View Resolver for JSPs -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="requestContextAttribute" value="rc"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    
+    <security:global-method-security pre-post-annotations="enabled">
+    	<security:expression-handler ref="expressionHandler"/>
+    </security:global-method-security>
+    
+    <bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+        <property name="permissionEvaluator" ref="permissionEvaluator"/>
+    </bean>
+    
+    <bean id="permissionEvaluator" class="com.teaminformatics.webapp.security.ServicePermissionEvaluator">
+        <constructor-arg index="0">
+            <map key-type="java.lang.String" value-type="com.teaminformatics.webapp.security.Permission">
+                <entry key="isCaseAllowed" value-ref="casePermission"/>
+                <entry key="isContentAllowed" value-ref="contentPermission"/>
+                <entry key="isPageAllowed" value-ref="pagePermission"/>
+                <entry key="isNotableAllowed" value-ref="notablePermission"/>
+                <entry key="isDataPointEntryAllowed" value-ref="dataPointEntryPermission" />
+                <entry key="isDataPointEntryCodeAllowed" value-ref="dataPointEntryCodePermission" />
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="casePermission" class="com.teaminformatics.webapp.security.permissions.CasePermission" />
+    <bean id="contentPermission" class="com.teaminformatics.webapp.security.permissions.ContentPermission" />
+    <bean id="pagePermission" class="com.teaminformatics.webapp.security.permissions.PagePermission" />
+    <bean id="notablePermission" class="com.teaminformatics.webapp.security.permissions.NotablePermission" />
+    <bean id="dataPointEntryPermission" class="com.teaminformatics.webapp.security.permissions.DataPointEntryPermission" />
+    <bean id="dataPointEntryCodePermission" class="com.teaminformatics.webapp.security.permissions.DataPointEntryCodePermission" /> 
+    <!-- Add additional controller beans here -->
+</beans>

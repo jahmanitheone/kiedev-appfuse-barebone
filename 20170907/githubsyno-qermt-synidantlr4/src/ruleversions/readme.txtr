@@ -1,0 +1,5 @@
+For each dated version:
+
+1. Copy test rule
+/ruleversions/SynRule<date>.g4 to /synodex-ruletest02/src/main/antlr4/com/synodex/qcai/antlr4/rules/SynRule.g
+2. Replace test

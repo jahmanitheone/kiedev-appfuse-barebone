@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Built-By: pchauvet
+Build-Jdk: 1.8.0_131
+Class-Path: lib/appfuse-service-2.1.0.jar lib/velocity-1.4.jar lib/vel
+ ocity-dep-1.4.jar lib/cxf-rt-frontend-jaxrs-2.3.3.jar lib/cxf-api-2.3
+ .3.jar lib/neethi-2.0.4.jar lib/wsdl4j-1.6.2.jar lib/cxf-common-schem
+ as-2.3.3.jar lib/cxf-rt-core-2.3.3.jar lib/jaxb-impl-2.1.13.jar lib/g
+ eronimo-javamail_1.4_spec-1.7.1.jar lib/jsr311-api-1.1.1.jar lib/cxf-
+ rt-bindings-xml-2.3.3.jar lib/jettison-1.2.jar lib/woodstox-core-asl-
+ 4.1.1.jar lib/stax-api-1.0-2.jar lib/stax2-api-3.1.1.jar lib/cxf-comm
+ on-utilities-2.3.3.jar lib/XmlSchema-1.4.7.jar lib/cxf-rt-transports-
+ http-2.3.3.jar lib/cxf-rt-transports-common-2.3.3.jar lib/cxf-rt-fron
+ tend-jaxws-2.3.3.jar lib/xml-resolver-1.2.jar lib/asm-3.3.jar lib/cxf
+ -rt-bindings-soap-2.3.3.jar lib/cxf-tools-common-2.3.3.jar lib/cxf-rt
+ -databinding-jaxb-2.3.3.jar lib/cxf-rt-frontend-simple-2.3.3.jar lib/
+ cxf-rt-ws-addr-2.3.3.jar lib/commons-dbcp-1.3.jar lib/commons-pool-1.
+ 5.4.jar lib/dwr-2.0.3.jar lib/ehcache-web-2.0.3.jar lib/jstl-1.1.2.ja
+ r lib/standard-1.1.2.jar lib/struts-menu-2.4.3.jar lib/velocity-tools
+ -view-1.0.jar lib/sitemesh-2.4.2.jar lib/urlrewritefilter-3.1.0.jar l
+ ib/commons-lang-2.6.jar lib/aspectjweaver-1.6.10.jar lib/aspectjrt-1.
+ 6.10.jar lib/slf4j-api-1.6.1.jar lib/jcl-over-slf4j-1.6.1.jar lib/slf
+ 4j-log4j12-1.6.1.jar lib/log4j-1.2.16.jar lib/appfuse-hibernate-2.1.0
+ .jar lib/hibernate-core-3.6.1.Final.jar lib/dom4j-1.6.1.jar lib/hiber
+ nate-commons-annotations-3.2.0.Final.jar lib/hibernate-jpa-2.0-api-1.
+ 0.0.Final.jar lib/jta-1.1.jar lib/javassist-3.12.1.GA.jar lib/hiberna
+ te-ehcache-3.6.1.Final.jar lib/ehcache-core-2.3.1.jar lib/commons-bea
+ nutils-1.8.3.jar lib/aopalliance-1.0.jar lib/mysql-connector-java-5.1
+ .14.jar lib/commons-fileupload-1.2.1.jar lib/commons-io-1.3.2.jar lib
+ /displaytag-1.2.jar lib/commons-collections-3.1.jar lib/spring-module
+ s-validation-0.8.jar lib/commons-logging-1.0.4.jar lib/commons-valida
+ tor-1.3.0.jar lib/oro-2.0.8.jar lib/commons-digester-1.7.jar lib/antl
+ r-2.7.6.jar lib/js-1.6R2.jar lib/mail-1.4.jar lib/activation-1.1.jar 
+ lib/compass-2.2.0.jar lib/lucene-core-2.4.1.jar
+Created-By: Maven Integration for Eclipse
+Implementation-Build: 2.3.0.${buildNumber}
+

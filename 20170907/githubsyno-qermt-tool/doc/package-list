@@ -1,0 +1,5 @@
+com.synodex.qermt.tool
+com.synodex.qermt.tool.exception
+com.synodex.qermt.tool.main
+com.synodex.qermt.tool.main.codegenerator.base
+com.synodex.qermt.tool.main.helper

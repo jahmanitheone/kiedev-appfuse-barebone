@@ -1,0 +1,49 @@
+rule "<rulesynid>"
+     when
+        $cs : ScreeningData();
+        $caseinfo : CaseInfo();
+    then
+        String droolrulename = drools.getRule().getName();
+        Logger log = getLogger(droolrulename);
+
+        $cs.setDroolRule(droolrulename);
+        log.info("************************************************");
+        log.info("* Begin Processing Drools Rule: " + droolrulename +"");
+        log.info("* " + $caseinfo);
+        log.info("* Datapoint: caseId=" + $cs.getCaseId() + ", " + $cs.getSynId() + "-" + $cs.getDpEntryId() );
+        log.info("************************************************");
+
+        if(validateRule<rulesynidtrim>(log, droolrulename, $cs, $caseinfo))
+        {
+            log.info("--------[Drool Success Status]--------");
+            showRuleSuccessStatus(log, droolrulename);
+        } else
+        {
+            showRuleFailedStatus(log, droolrulename);
+        }
+end
+
+//<declarerule>
+function boolean validateRule<rulesynidtrim>(Logger log, String droolrulename, ScreeningData sc, CaseInfo caseinfo)
+{
+    boolean isSynid = false;
+    <ruleinit><rulelog>
+    if
+    (
+         isStringEqual(sc.getSynId(), "<synid>")<ruleexpression>
+    )
+    {
+        //Flag that this DP was valid for a rule
+        sc.setPassedRule(droolrulename);
+        isSynid = true;
+        
+        <rulesetvalue>
+        
+        if(sc.isDataPointSetter())
+        	log.info("SUCCESS( set DP data(" + sc.isDataPointSetter() + ") )! Datapoint " + sc.getDpEntryId() + " matched rule: " + droolrulename + "!");
+        else
+        	log.info("SUCCESS( " + sc.getDataStatus() + " )! Datapoint " + sc.getDpEntryId() + " matched rule: " + droolrulename + "!");
+    }
+
+    return isSynid;
+}

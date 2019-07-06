@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HibernateQueryReport" pageWidth="650" pageHeight="965" whenNoDataType="AllSectionsNoDetail" columnSpacing="0" leftMargin="30" rightMargin="1" topMargin="20" bottomMargin="1"> 
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CASE_ID" class="java.lang.Long"/>
+	<parameter name="CONTENT_MANAGER_FILE_RETRIEVER" class="com.teaminformatics.synodex.ucm.IContentMangerFileRetriever"/>
+	<queryString language="hql">
+		<![CDATA[from Page where _case.id = $P{CASE_ID} and isDeleted=false order by finalPageNumber]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="spContentID" class="java.lang.String"/>
+	<detail>
+		<band height="842">
+			<image>
+				<reportElement x="0" y="0" width="595" height="842"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{CONTENT_MANAGER_FILE_RETRIEVER}.getFileById($F{spContentID},"web")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="595" height="842"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{CONTENT_MANAGER_FILE_RETRIEVER}.getFileById("grid","web")]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	
+	
+	<pageFooter>
+        <band height="65">
+            <line>
+                <reportElement x="0" y="10" width="515" height="1"/>
+                <graphicElement/>
+            </line>
+            <textField>
+                <reportElement x="200" y="20" width="80" height="15"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String"><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="280" y="20" width="75" height="15"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="35" width="590" height="30"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String"><![CDATA["This document contains confidential data and is intended only for authorized users. Do not print or distribute this document for any unauthorized purpose."]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+ </jasperReport>

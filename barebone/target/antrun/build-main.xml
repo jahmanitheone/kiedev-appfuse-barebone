@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <exec spawn="true" dir="C:\Users\kmei\Downloads\NaturalDocs-1.52" executable="cmd">
+    <arg value="/c"/>
+    <arg value="runsynodexreport.bat"/>
+  </exec>
+  <echo>....................................................</echo>
+  <echo>Generated JavaScript Documentation via Natural Docs.</echo>
+  <echo>....................................................</echo>
+</target>
+</project>

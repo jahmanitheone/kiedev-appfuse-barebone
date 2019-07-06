@@ -1,0 +1,198 @@
+//Global vars
+var showexcelrows = false;
+
+main()
+	if(!validateparams())
+		exit program
+
+	qermtprocessing()
+	
+validateparams()
+	//basedir is required
+	if basedir is empty
+		showerror "<basedir> was not provided as a parameter"
+		return false
+
+	//excelfile is required
+	if exceelfile is empty
+		showerror "<excelfile> was not provided as a parameter"
+		return false
+		
+	//excelfiles is not required	
+	if showexcelrows
+		showexcelrows = true
+	
+	return true	
+	
+qermtprocessing()
+	if !validaterprocessingenv()
+		return
+	
+	var beandroolsruleprocessed = createDroolRules()
+	if beandroolsruleprocessed == null {
+		showMessage "Processing completed - FAILED!"
+		return
+	} else {
+		writeQermtFiles(beandroolsruleprocessed)
+		showSucessProcessingMessage()
+	}
+
+validaterprocessingenv()
+	if !validatebasedir()
+		return false
+	if !validateexcelfile()
+		return false
+	return true	
+	
+validatebasedir()
+	if !basedir found
+	 	showerror "Directory was found for: " + basedir
+	 	return false
+	return true 
+		
+
+validateexcelfile()
+	if !excelfile found
+	 	showerror "Excel file was found for: " + <excelfile>	
+		return false
+	return true	
+
+
+
+showSucessProcessingMessage()
+		showMessage "Processing completed - SUCCESS!"
+		showMessage "Proccessed " + basedir + excelfile + " [OK]"
+		showMessage "   " + rulecnt + " was processed "  + " [OK]"
+		showMessage "   " + validrulecnt + " was valid"  + " [VALID]"
+		showMessage "   " + invalidrulecnt + " was invalid"  + " [INVALID]"
+		showMessage "   " + droolrulecnt + " was generated"  + " [OK]"
+					
+	
+createDroolRules()
+	List readexcelrows
+	var beanexcelrowsprocessed
+	
+	//Read the excel file
+	var excelfile = readexcelfile()
+	if excelfile == null
+		showerror excelfile + " could not be opened"
+		return false
+	
+	//Read excel rows
+	readexcelrows = getExcelRows(excelfile)	
+	beanexcelrowsprocessed = createwf3objects(readexcelrows)
+	
+	List listofwf3object = beanexcelrowsprocessed.listofwf3object
+	showMessage "Processing " + listofwf3object.size " to be converted to valid drools rule" 
+	var beandroolsruleprocessed = createDroolsRule(listofwf3object)	
+				
+	return beandroolsruleprocessed
+		
+		
+readexcelfile()
+	excelfile = (system read excel file from basedir)
+	if !excelfile
+		return null				
+	return excelfile
+	
+
+getExcelRows(excelfile)
+	List readexcelrows
+	- open excel file
+	- place rows in readexcelrows
+	
+	return readexcelrows
+
+
+
+createwf3objects (readexcelrows)
+	var beanexcelrowsprocessed	
+	for readexcelrows: excelrow
+		if !(excelrow.cell not null) 
+			beanexcelrowsprocessed.saveInvalidRows(excelrow.cell)
+		else 
+			var wf3object = createawf3object(excelrow)
+			beanexcelrowsprocessed.beanexcelrowsprocessed.(wf3object)			 		
+	
+	return beanexcelrowsprocessed
+	
+
+beanexcelrowsprocessed
+	var List invalidcellrow
+	var List listofwf3object
+	
+	saveInvalidRows(excelrow.cell)
+		invalidcellrow.add(excelrow.cell)
+
+	c(wf3object)
+		listofwf3object.add(wf3object)
+	
+	
+				
+createawf3object(excelrow)
+	var wf3object
+	-- create wf3object from excelrow
+	return wf3object
+	
+	
+	
+				
+createawf3object(excelrow)
+	var wf3object
+	-- create wf3object from excelrow
+	return wf3object
+	
+
+createDroolsRule(listofwf3object)
+	var beandroolsruleprocessed
+		
+	if (listofwf3object==null)
+		showError "Wf3object parmeter is null"
+		return false
+
+	for each listofwf3object: wf3object
+	{
+		wf3object = validateRuleWithAntlr(wf3object)
+		if(wf3object.isValid())
+			beandroolsruleprocessed.saveValidRules(wf3object)
+		else
+			beandroolsruleprocessed.saveValidRules(wf3object)
+	}
+	
+	return beandroolsruleprocessed
+
+	
+			
+beandroolsruleprocessed
+	List validdroolsrule
+	List invaliddroolsrule
+	
+	saveValidRules(wf3object)
+		validdroolsrule.add(wf3object)
+
+	saveInValidRules(wf3object)
+		invvaliddroolsrule.add(wf3object)
+
+validateRuleWithAntlr(wf3object)
+	if(wf3objet==null)
+		showError "Wf3object parmeter is null"
+		return null
+	
+	wf3object = userAndtlrToProces(wf3object)
+
+	return wf3object;
+	
+
+writeQermtFiles(beandroolsruleprocessed)
+{
+	if(beandroolsruleprocessed==null)
+		showError "QERMT processed rules parameter is null"
+		return null
+
+	List validdroolsrule = beandroolsruleprocessed.validdroolsrule;
+	writeMetaRulesFiles(validdroolsrule)
+
+	List invvaliddroolsrule = beandroolsruleprocessed.invvaliddroolsrule;
+	writeInValidDroolsrule(validdroolsrule)
+
+}	

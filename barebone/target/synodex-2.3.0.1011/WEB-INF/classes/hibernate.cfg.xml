@@ -1,0 +1,48 @@
+<!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following: -->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+    <!--
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">-->
+
+<hibernate-configuration>
+    <session-factory>
+        <mapping class="org.appfuse.model.User" />
+        <mapping class="org.appfuse.model.Role" />
+        <mapping class="com.teaminformatics.synodex.model.Action" />
+        <mapping class="com.teaminformatics.synodex.model.LOV" />
+        <mapping class="com.teaminformatics.synodex.model.LOVValues" />
+        <mapping class="com.teaminformatics.synodex.model.Audit" />
+        <mapping class="com.teaminformatics.synodex.model.Case" />
+        <mapping class="com.teaminformatics.synodex.model.CaseHistory" />
+        <mapping class="com.teaminformatics.synodex.model.Client" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointCategory" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointCategoryGroup" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointEntry" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointEntryCode" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointFormEntity" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointSubCategory" />
+        <mapping class="com.teaminformatics.synodex.model.Division" />
+        <mapping class="com.teaminformatics.synodex.model.DocumentType" />
+        <mapping class="com.teaminformatics.synodex.model.Error" />
+        <mapping class="com.teaminformatics.synodex.model.Group" />
+        <mapping class="com.teaminformatics.synodex.model.DocumentTypeGroup" />
+        <mapping class="com.teaminformatics.synodex.model.Head" />
+        <mapping class="com.teaminformatics.synodex.model.Languages" />
+        <mapping class="com.teaminformatics.synodex.model.LocalizedText" />
+        <mapping class="com.teaminformatics.synodex.model.Message" />
+        <mapping class="com.teaminformatics.synodex.model.MasterCodes" />
+        <mapping class="com.teaminformatics.synodex.model.Notable" />
+        <mapping class="com.teaminformatics.synodex.model.Page" />
+        <mapping class="com.teaminformatics.synodex.model.Session" />
+        <mapping class="com.teaminformatics.synodex.model.Stage" />
+        <mapping class="com.teaminformatics.synodex.model.Team" />
+        <mapping class="com.teaminformatics.synodex.model.WorkFlows" />
+        <mapping class="com.teaminformatics.synodex.model.HierarchyRevisions" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointSubCategoryCodes" />
+        <mapping class="com.teaminformatics.synodex.model.MedicalHierarchy" />
+        <mapping class="com.teaminformatics.synodex.model.MedicalHierarchyView" />
+        <mapping class="com.teaminformatics.synodex.model.DataPointEntryView" />
+        <mapping class="com.teaminformatics.synodex.model.ConfigSwitches" />
+    </session-factory>
+</hibernate-configuration>

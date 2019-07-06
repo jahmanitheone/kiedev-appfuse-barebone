@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+    
+	<bean id="contentMangerFileRetriever" class="com.teaminformatics.synodex.ucm.RemoteFileRetriever" init-method="init">
+    	<property name="username" value="sysadmin" />
+  	    <property name="password" value="Password1" />
+    	<property name="clientConfig">
+    		<bean class="oracle.stellent.ridc.protocol.intradoc.IntradocClientConfig">
+    			<property name="connectionString" value="idcs://127.0.0.1:4444" />
+    		</bean>
+    	</property>
+    </bean>
+
+</beans>

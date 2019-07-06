@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="IWS">
+	<bannerLeft>
+		<src>http://synodex.com/images/logo.gif</src>
+		<href>index.html</href>
+	</bannerLeft>
+
+	<publishDate format="dd MMM yyyy" />
+	<skin>
+		<groupId>org.apache.tapestry</groupId>
+		<artifactId>maven-skin</artifactId>
+		<version>1.1</version>
+	</skin>
+
+	<body>
+		<links>
+			<item name="Maven" href="http://maven.apache.org/" />
+			<item name="Apache" href="http://www.apache.org/" />
+		</links>
+
+		<menu name="Synodex Project">
+			<item name="Best Practices" href="/best-practices.html" />
+			<item name="FAQs" href="/faqs.html" />
+		</menu>
+
+		<menu name="Javscript/Fron-End Reports">
+			<item name="JavascriptDoc" title="Naturaldocs generated javascript documentation" href="javascriptdoc/index.html" />
+		</menu>
+
+		<menu ref="modules" />
+		<menu ref="parent" />
+		<menu ref="reports" />
+
+		${reports}
+	</body>
+</project>
+

@@ -1,0 +1,4 @@
+use maven instructions with pom-with-assembly.xml
+Maven Run Configurations
+Goal
+	assembly:assembly -DdescriptorId=jar-with-dependencies

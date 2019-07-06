@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true">
+
+	<aop:aspectj-autoproxy/>
+	<!--  <bean id="jsonFilterAspect" class="com.teaminformatics.webapp.aop.JsonFilterAspect" /> -->
+
+    <!-- Activates scanning of @Autowired -->
+    <context:annotation-config/>
+
+
+    <!-- Activates scanning of @Repository and @Service -->
+    <context:component-scan base-package="com.teaminformatics"/>
+
+
+  <!--  Entity Interceptor bean - sets audit fields for each persistent object -->
+   <bean id="entityInterceptor" class="com.teaminformatics.webapp.interceptor.AuditInterceptor" ></bean>
+<!-- Hibernate SessionFactory -->
+   <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" depends-on="entityInterceptor">
+       <property name="entityInterceptor"><ref local="entityInterceptor"/></property>
+       <property name="dataSource" ref="dataSource"/>
+       <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+       <property name="hibernateProperties">
+           <value>
+               	hibernate.dialect=${hibernate.dialect}
+                hibernate.cache.use_second_level_cache=true
+                hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+                hibernate.max_fetch_depth=2
+                hibernate.default_batch_fetch_size=8
+                hibernate.jdbc.batch_size=32
+                hibernate.show_sql=false
+            </value>
+      </property>
+   </bean>
+
+
+	<bean id="caseDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.Case"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean> 
+	<bean id="stageDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.Stage"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>  
+   
+   	<bean id="caseHistoryDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.CaseHistory"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>  
+    <bean id="pageDao" class="com.teaminformatics.synodex.dao.impl.PageDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean> 
+    <bean id="notableDao" class="com.teaminformatics.synodex.dao.impl.NotableDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>     
+    <bean id="securityDao" class="com.teaminformatics.synodex.dao.impl.SecurityDaoImpl" />
+	<bean id="sessionDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.Session"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean> 
+    <bean id="documentTypeDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.DocumentType"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean> 
+    <bean id="documentTypeGroupDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.DocumentTypeGroup"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>	
+	<bean id="dataPointDao" class="com.teaminformatics.synodex.dao.impl.DataPointDaoImpl">
+        <constructor-arg value="com.teaminformatics.synodex.model.DataPointCategory"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean> 
+	<bean id="dataPointEntryDao" class="com.teaminformatics.synodex.dao.impl.DataPointEntryDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>
+    <bean id="dataPointFormEntityDao" class="com.teaminformatics.synodex.dao.impl.LoadableDaoHibernate">
+        <constructor-arg value="com.teaminformatics.synodex.model.DataPointFormEntity"/> 
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>
+    <bean id="dataPointEntryCodeDao" class="com.teaminformatics.synodex.dao.impl.DataPointEntryCodeDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>
+    <bean id="auditDao" class="com.teaminformatics.synodex.dao.impl.AuditDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>
+    <bean id="errorDao" class="com.teaminformatics.synodex.dao.impl.ErrorDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>
+	<bean id="workFlowsDao" class="com.teaminformatics.synodex.dao.impl.WorkFlowsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="medicalHierarchyViewDao" class="com.teaminformatics.synodex.dao.impl.MedicalHierarchyViewDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="lOVValuesDao" class="com.teaminformatics.synodex.dao.impl.LOVValuesImpl">
+	    <constructor-arg value="com.teaminformatics.synodex.model.LOVValues"/> 
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="configSwitchDao" class="com.teaminformatics.synodex.dao.impl.ConfigSwitchDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+<!-- 	<bean id="converstionUtil" class="com.teaminformatics.webapp.util.ConversionUtil">
+		<property name="converters">
+			<map>
+				<entry key="com.teaminformatics.synodex.model.DocumentType">
+					<bean class="com.teaminformatics.webapp.util.converters.ModelConverter">
+						<property name="dao" ref="documentTypeDao" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean> -->
+	
+    <!-- Add new Managers here -->
+	
+</beans>

@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.synodex</groupId>
+	<artifactId>qermt.wf3excel</artifactId>
+	<version>v0.0.0.0</version>
+	<name>com.synodex.qermt.wf3excel</name>
+	<description>Synodex QCAI Engine Rules Management Tool</description>
+
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.8.2</junit.version>
+	</properties>
+
+	<scm>
+		<connection>scm:svn:https://youruserid:password@virnwjhpv04clnx.newjersey.innodata.net:8080/svn/synodex/trunk/synodexqcai-engine-drools</connection>
+		<developerConnection>scm:svn:https://youruserid:password@virnwjhpv04clnx.newjersey.innodata.net:8080/svn/synodex/trunk/synodexqcai-engine-drools</developerConnection>
+	</scm>
+
+	<build>
+		<finalName>com.synodex.qermt.wf3excel</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<tasks>
+						<echo>Displaying Environment variables</echo>
+					</tasks>
+
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>com.synodex</groupId>
+			<artifactId>qermt.utils</artifactId>
+			<version>v0.0.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.synodex</groupId>
+			<artifactId>qermt.wf3core</artifactId>
+			<version>v0.0.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.synodex</groupId>
+			<artifactId>qermt.poiexcel</artifactId>
+			<version>v0.0.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.synodex</groupId>
+			<artifactId>qermt.synidantlr4</artifactId>
+			<version>v0.0.0.0</version>
+		</dependency>		
+	</dependencies>
+
+</project>

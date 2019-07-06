@@ -1,0 +1,306 @@
+QeRMT Tool Usage:
+	java qermtdroolstool.jar <basedir> <excelfile> <usage>
+
+	<basedir>  - The directory where files to be processed are placed - required.
+
+	<excefile> - Excel file to be processed with Synid rules - required.
+				  Example: WF3RulesXLSXb.xlsx
+
+	<usage>    - Flag to show usage instruction - not required.
+	
+More info:
+	File generated after running QeRMT tool:
+		qermtrules.cvs   -- The qermt rules with Valid/Invalid rules marker.
+		
+		qermtdrools.sql  -- The drools files to be inserted in the database
+		                 -- Recommendation, the ruleId should be modified.
+		                 
+		qermterror.cvs   -- The qermt rules with generated errors 
+
+//Global vars
+var basedir
+var errorfile
+var insertrulesfile
+var metarulesfile
+
+
+main()
+	if(!validateparams())
+		exit program
+
+	qermtprocessing()
+	
+validateparams()
+	//basedir is required
+	if basedir is empty
+		showerror "<basedir> was not provided as a parameter"
+		return false
+
+	//excelfile is required
+	if exceelfile is empty
+		showerror "<excelfile> was not provided as a parameter"
+		return false
+		
+	return true	
+
+
+qermtprocessing()
+	var processedok = false
+	
+	if !validaterprocessingenv()
+		return
+
+	setFileNames()
+	clearEnvFiles()
+
+	var listofwf3object = createDroolRules()
+	if listofwf3object != null 
+	{
+		if !writeQermtFiles(listofwf3object)
+			processedok = true
+	}
+	
+	if processedok
+		showSucessProcessingMessage()
+	else 
+		showFailedProcessingMessage()
+
+
+setFileNames()
+	errorfile = basedir + "ErrorSummary.txt";
+	insertrulesfile = basedir + "InsertRules.sql";
+	metarulesfile = basedir + "MetaRules.cvs";
+
+
+clearEnvFiles()
+	delete(insertrulesfile)
+	delete(metarulesfile)
+
+
+validaterprocessingenv()
+	if !validatebasedir()
+		return false
+	if !validateexcelfile()
+		return false
+	return true	
+	
+validatebasedir()
+	if !basedir found
+	 	showerror "Directory was found for: " + basedir
+	 	return false
+	else
+	{
+		deleFile
+	}	 	
+	return true 
+		
+
+validateexcelfile()
+	if !excelfile found
+	 	showerror "Excel file was found for: " + <excelfile>	
+		return false
+	return true	
+
+
+showFailedProcessingMessage()
+		showMessage "Processing completed - FAILED!"
+		showMessage "Proccessed " + basedir + excelfile + " [FAILED]"
+
+showSucessProcessingMessage()
+		showMessage "Processing completed - SUCCESS!"
+		showMessage "Proccessed " + basedir + excelfile + " [OK]"
+		showMessage "   " + rulecnt + " was processed "  + " [OK]"
+		showMessage "   " + validrulecnt + " was valid"  + " [VALID]"
+		showMessage "   " + invalidrulecnt + " was invalid"  + " [INVALID]"
+		showMessage "   " + droolrulecnt + " was generated"  + " [OK]"
+					
+	
+createDroolRules()
+	List readexcelrows
+	var beanexcelrowsprocessed
+	
+	//Read the excel file
+	var excelfile = readexcelfile()
+	if excelfile == null
+		showerror excelfile + " could not be opened"
+		return false
+	
+	//Read excel rows
+	readexcelrows = getExcelRows(excelfile)	
+	beanexcelrowsprocessed = createwf3objects(readexcelrows)
+	
+	List listofwf3object = beanexcelrowsprocessed.listofwf3object
+	showMessage "Processing " + listofwf3object.size " to be converted to valid drools rule" 
+	
+	listofwf3object = createDroolsRuleFromAntlr(listofwf3object)
+				
+	return listofwf3object 
+		
+		
+readexcelfile()
+	excelfile = (system read excel file from basedir)
+	if !excelfile
+		return null				
+	return excelfile
+	
+
+getExcelRows(excelfile)
+	List readexcelrows
+	- open excel file
+	- place rows in readexcelrows
+	
+	return readexcelrows
+
+
+
+createwf3objects (readexcelrows)
+	var beanexcelrowsprocessed	
+	for readexcelrows: excelrow
+		if !(excelrow.cell not null) 
+			beanexcelrowsprocessed.saveInvalidRows(excelrow.cell)
+		else 
+			var wf3object = createawf3object(excelrow)
+			beanexcelrowsprocessed.beanexcelrowsprocessed.saveValidRows(wf3object)			 		
+	
+	return beanexcelrowsprocessed
+	
+
+beanexcelrowsprocessed
+	var List invalidcellrow
+	var List listofwf3object
+	
+	saveInvalidRows(excelrow.cell)
+		invalidcellrow.add(excelrow.cell)
+
+	saveValidRows(wf3object)
+		listofwf3object.add(wf3object)
+	
+	
+				
+createawf3object(excelrow)
+	var wf3object
+	-- create wf3object from excelrow
+	return wf3object
+	
+	
+	
+				
+createawf3object(excelrow)
+	var wf3object
+	-- create wf3object from excelrow
+	return wf3object
+	
+
+createDroolsRuleFromAntlr(listofwf3object)
+	List processedlistofwf3object;
+	 
+	if (listofwf3object==null)
+		showError "List of wf3objects parameter is null"
+		return false
+
+	for each listofwf3object: wf3object
+	{
+		//Valid and invalid rules are flagged in the wf3object
+		//Plus the valid and invalid drools are gene
+		wf3object = validateRuleWithAntlr(wf3object)
+		
+		processedlistofwf3object.add(wf3object)
+	}
+
+	return processedlistofwf3object;
+	
+			
+beandroolsruleprocessed
+	List validdroolsrule
+	List invaliddroolsrule
+	
+	saveValidRules(wf3object)
+		validdroolsrule.add(wf3object)
+
+	saveInValidRules(wf3object)
+		invvaliddroolsrule.add(wf3object)
+
+validateRuleWithAntlr(wf3object)
+	if(wf3objet==null)
+		showError "Wf3object parmeter is null"
+		return null
+	
+	wf3object = userAndtlrToProces(wf3object)
+
+	return wf3object;
+	
+
+writeQermtFiles(listofwf3object)
+	if(listofwf3object==null)
+		showError "List of processed wf3object is null"
+		return false
+
+	writeMetaRulesFiles(listofwf3object)
+	writeDroolsInserts(listofwf3object)
+	writeError(listofwf3object)
+
+	return true	
+	
+	
+writeMetaRulesFiles(listofwf3object)
+	StringBuilder lines
+	
+	for each listofwf3object: wf3object
+	{
+			//Copy wf3object as and append Valid/Invald
+		var msg = ""
+		msg += wf3object.getxx + ","
+		msg += wf3object.getxx + ","
+		msg += wf3object.getxx + ","
+		msg += wf3object.getxx + ","
+		msg += wf3object.getxx + ","
+		if(wf3object.isValid()) + ","
+			msg += "Valid" + ","
+		else 	
+			msg += "InValid" + ","
+		msg += "\n"
+		
+		lines.append(msg)
+	}
+
+	writeToFile(metarulesfile, lines.toString)
+	
+	
+writeDroolsInserts(listofwf3object)
+	StringBuilder lines
+	
+	for each listofwf3object: wf3object
+	{
+			//Create the generated drool insert
+		var msg = ""
+
+		msg = "//Generated rule: " + wf3object.getRuleId + " - " + wf3object.RuleShortName + " - " + wf3object.getRule
+		if(wf3object.isValid()) + ","
+			msg += wf3object.getDroolRule
+		msg += "\n"
+		msg += "\n"
+		
+		lines.append(msg)
+	}
+
+	writeToFile(insertrulesfile, lines.toString)
+
+
+writeError(listofwf3object)
+	StringBuilder lines
+	
+	for each listofwf3object: wf3object
+	{
+			//Create the generated drool error
+		var msg = ""
+
+		msg = "//Generated rule error: " + wf3object.getRuleId + " - " + wf3object.RuleShortName + " - " + wf3object.getRule
+		if(!wf3object.isValid()) + ","
+			msg += wf3object.getDroolError
+		msg += "\n"
+		msg += "\n"
+		
+		lines.append(msg)
+	}
+
+	writeToFile(errorfile, lines.toString)

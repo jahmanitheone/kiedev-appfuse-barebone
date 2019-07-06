@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{MMMddyyyy HH:mm:ss,SSS} %1p %c{1}.%M:%L %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="logs/qermt.log" />
+		<!-- Rolls Log every day at 12:00AM based on the server time. I am looking 
+			to roll at 2:00PM but Log4j is not allowing -->
+		<param name="datePattern" value=".yyyy-MM-dd-a" />
+		<param name="immediateFlush" value="true" />
+		<param name="threshold" value="INFO" />
+		<param name="append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{MMMddyyyy HH:mm:ss,SSS} %1p %c{1}.%M:%L %m%n" />
+		</layout>
+	</appender>
+
+    <logger name="com.synodex">
+        <level value="INFO"/>
+		<appender-ref ref="FILE" />
+    </logger>
+
+    <root>
+		<level value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="FILE" />
+    </root>
+
+</log4j:configuration>

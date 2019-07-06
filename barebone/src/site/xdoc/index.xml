@@ -1,0 +1,35 @@
+<document>
+  <properties>
+    <author email="user@company.com">The Synodex IT Team</author>
+    <title>Innodata Workflow System (IWS) Documentation</title>
+  </properties>
+  <body>
+    <section name="Introduction">
+        Synodex
+        <p>
+		We turn complex medical documents into usable information      
+		</p>
+        <p>
+		Under construction..
+		<br></br>      
+		</p>
+    </section>
+    <section name="Introduction">
+	    <subsection name="Who are we?">
+	      <p>
+			Synodex launched in the UK in January 2011. We operate nationally with our UK Head Office based in London.
+			In March 2011, Innodata purchased Synodex and has invested in Synodex technology and operations. We now use the latest workflow technology combined with high security and Innodata's operational expertise.
+			Innodata is ISO 9001/27001 compliant.
+		<ul>
+		  <li>Online javadoc</li>
+		  <li>Quality assurance</li>
+		  <ul>
+		    <li>Static code audits with Checkstyle or PMD</li>
+		    <li>Unit test reports</li>
+		  </ul>
+		</ul>
+	      </p>
+	    </subsection>
+    </section>
+  </body>
+</document>
